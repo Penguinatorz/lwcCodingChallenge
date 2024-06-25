@@ -1,0 +1,33 @@
+<template>
+    <lightning-card>
+        <h2>
+            Search for Accounts Wire Service
+        </h2>
+        <lightning-input type="text" label="Enter an Account Name" class="input"></lightning-input>
+        <lightning-button variant="brand" label="Search Accounts" onclick={handleButton}></lightning-button>
+
+        <template lwc:if={accountList.data}>
+            <lightning-datatable
+            key-field="id"
+            data={accountList.data}
+            columns={columns}>
+        </lightning-datatable>
+        </template>
+    </lightning-card>
+    <br><br>
+    <lightning-card>
+        <h2>
+            Search for Accounts Imperatively
+        </h2>
+        <lightning-input type="text" label="Enter an Account Name" onchange={handleOnChange}></lightning-input>
+        <lightning-button label="Search Accounts" onclick={handleSearch}></lightning-button>
+        <template lwc:if={imperativeAccountList}>
+            <lightning-datatable
+            key-field="id"
+            data={imperativeAccountList}
+            columns={columns}>
+        </lightning-datatable>
+        </template>
+    </lightning-card>
+    
+</template>
